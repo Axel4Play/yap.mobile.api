@@ -112,11 +112,11 @@ if (!$dom) {break;}
 					
 					$ins->execute([
 						$topic['id'],
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['title']), ENT_QUOTES, 'UTF-8'),
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['description']), ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['title'], ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['description'], ENT_QUOTES, 'UTF-8'),
 						$topic['created_at'],
 						$topic['user_id'],
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['user_name']), ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['user_name'], ENT_QUOTES, 'UTF-8'),
 						$topic['forum_id'],
 						$topic['rating'],
 						$topic['messages_count'],
@@ -128,8 +128,8 @@ if (!$dom) {break;}
 						$topic['id']
 					]);
 					$run->execute([
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['title']), ENT_QUOTES, 'UTF-8'),
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['description']), ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['title'], ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['description'], ENT_QUOTES, 'UTF-8'),
 						$topic['messages_count'],
 						$topic['last_message_time'],
 						$topic['id'],
@@ -190,11 +190,11 @@ foreach ($forums2 as $forum) {
 					
 					$ins->execute([
 						$topic['id'],
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['title']), ENT_QUOTES, 'UTF-8'),
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['description']), ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['title'], ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['description'], ENT_QUOTES, 'UTF-8'),
 						$topic['created_at'],
 						$topic['user_id'],
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['user_name']), ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['user_name'], ENT_QUOTES, 'UTF-8'),
 						$topic['forum_id'],
 						$topic['rating'],
 						$topic['messages_count'],
@@ -206,8 +206,8 @@ foreach ($forums2 as $forum) {
 						$topic['id']
 					]);
 					$run->execute([
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['title']), ENT_QUOTES, 'UTF-8'),
-						html_entity_decode(iconv('CP1251', 'UTF-8', $topic['description']), ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['title'], ENT_QUOTES, 'UTF-8'),
+						html_entity_decode($topic['description'], ENT_QUOTES, 'UTF-8'),
 						$topic['messages_count'],
 						$topic['last_message_time'],
 						$topic['id'],

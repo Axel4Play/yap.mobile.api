@@ -18,11 +18,11 @@ if (!empty($text)) {
 	
 	$post = [
 		'CookieDate' =>	1,
-		'PassWord'   => iconv('UTF-8','CP1251', $password),
+		'PassWord'   => $password, //iconv('UTF-8','CP1251', $password),
 		'Secure'     =>	1,
-		'UserName'   => iconv('UTF-8','CP1251', $login),
+		'UserName'   => $login, //iconv('UTF-8','CP1251', $login),
 		'referer'    => '',
-		'submit'     => iconv('UTF-8','CP1251', 'Вход'),
+		'submit'     => 'Вход', //iconv('UTF-8','CP1251', 'Вход'),
 		'user_key'   => md5('')
 	];
 
@@ -38,7 +38,7 @@ if (!empty($text)) {
 	$html = curl_exec($ch);
 	curl_close($ch);
 
-	$str = iconv('UTF-8', 'CP1251', 'вы вошли как');
+	$str = 'вы вошли как'; //iconv('UTF-8', 'CP1251', 'вы вошли как');
 	preg_match("~{$str}~", $html, $match);
 
 	if (count($match) > 0) {
@@ -71,7 +71,7 @@ if (!empty($text)) {
 				'enableemo'     => 'yes',
 				'enablesig'     => 'yes',
 				'auth_key'      => $auth_key,
-				'Post'          => iconv('UTF-8', 'CP1251', "{$text}\r\n[color=#CCCCCC]--\r\nОтправлено через ЯП.Мобайл[/color]"),
+				'Post'          => "{$text}\r\n[color=#CCCCCC]--\r\nОтправлено через ЯП.Мобайл[/color]", //iconv('UTF-8', 'CP1251', "{$text}\r\n[color=#CCCCCC]--\r\nОтправлено через ЯП.Мобайл[/color]"),
 				'MAX_FILE_SIZE' => 512000,
 				'FILE_UPLOAD'   => '',
 				'enabletag'     => 1

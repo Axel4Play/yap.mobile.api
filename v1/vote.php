@@ -19,11 +19,11 @@ $cookie = __DIR__.'/cookies/'.md5($login.$password.$time);
 
 $postdata = [
 	'CookieDate' =>	1,
-	'PassWord'   => iconv('UTF-8','CP1251', $password),
+	'PassWord'   => $password, //iconv('UTF-8','CP1251', $password),
 	'Secure'     =>	1,
-	'UserName'   => iconv('UTF-8','CP1251', $login),
+	'UserName'   => $login, //iconv('UTF-8','CP1251', $login),
 	'referer'    => '',
-	'submit'     => iconv('UTF-8','CP1251', 'Вход'),
+	'submit'     => 'Вход', //iconv('UTF-8','CP1251', 'Вход'),
 	'user_key'   => md5('')
 ];
 
@@ -38,7 +38,7 @@ curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);
 $html = curl_exec($ch);
 curl_close($ch);
 
-$str = iconv('UTF-8', 'CP1251', 'вы вошли как');
+$str = 'вы вошли как'; // iconv('UTF-8', 'CP1251', 'вы вошли как');
 preg_match("~{$str}~", $html, $match);
 
 if (count($match) > 0) {
@@ -54,7 +54,7 @@ if (count($match) > 0) {
 	curl_close($ch);
 
 	if (strlen($html) > 0) {
-		$html = iconv('CP1251', 'UTF-8', $html);
+		//$html = iconv('CP1251', 'UTF-8', $html);
 		$json = json_decode($html, true);
 		if ($json['status'] == 1) {
 			$status = 1;
